@@ -3,14 +3,11 @@ import { View, Text, Dimensions } from 'react-native';
 import styles from './styles';
 import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
+import { PostProps } from './../../screens/home/Home';
 
 const borderColor = 'rgba(100,100,100,0.5)';
 
-interface CardProps {
-  title: string;
-  body: string;
-}
-const Card: React.FC<CardProps> = ({title, body}) => {
+const Card: React.FC<PostProps> = ({data, name}) => {
 
   const [width, setWidth] = useState(() => {
     const { height, width } = Dimensions.get('screen');
@@ -24,9 +21,9 @@ const Card: React.FC<CardProps> = ({title, body}) => {
 
   return (
     <View style={[styles.container, {width: (width * 0.9), borderColor }]} >
-      <CardHeader title={title} borderColor={borderColor} />
+      <CardHeader title={name} borderColor={borderColor} />
       <View style={styles.body}>
-        <Text>{body}</Text>
+        <Text>{data.text !== undefined ? data.text : ''}</Text>
       </View>
       <CardFooter borderColor={borderColor} />
     </View>

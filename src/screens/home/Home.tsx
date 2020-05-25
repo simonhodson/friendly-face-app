@@ -14,13 +14,22 @@ interface LikeItem {
 
 type LikeData = (number & LikeItem) [];
 
+interface DBProps {
+  [key: string]: {
+    displayName: string;
+    data: {text: string};
+    comments: string[];
+    likes: {}[];
+  };
+}
+
 export interface PostProps {
   name: string;
   postId: string;
   key: string;
   data: {text: string};
-  likes: LikeData;
-  comments:  (number & string)[];
+  likes: any[];
+  comments:  any[];
 }
 
 const Home: React.FC = () => {
@@ -29,7 +38,7 @@ const Home: React.FC = () => {
   const [postsRef] = useState(() => {
     return database().ref('posts');
   });
-  const [posts, setPosts] = useState<any>({});
+  const [posts, setPosts] = useState<DBProps>({});
 
   useEffect(() => {
     postsRef.on('value', (snapshot: any) => {
@@ -39,7 +48,7 @@ const Home: React.FC = () => {
   }, [postsRef]);
 
   function returnPosts() {
-    let temp: any[] = [];
+    let temp: PostProps[] = [];
       for (const prop in posts) {
         temp.push({
             name: posts[prop].displayName,
@@ -60,7 +69,7 @@ const Home: React.FC = () => {
       <FlatList
         contentContainerStyle={{flexGrow: 1, alignItems: 'center'}}
         data={returnPosts()}
-        renderItem={({ item }) => <Card title={item.name} body={item.data.text} />}
+        renderItem={({ item }) => <Card {...item} />}
         keyExtractor={item => item.key}
       />
     </SafeAreaView>

@@ -4,10 +4,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Avatar } from '../common';
 
-interface CardFooterProps {
+interface LikeItem { userId: string; };
+
+type DataType<T> = (number & T) [];
+
+export interface CardFooterProps {
   borderColor: string;
+  likes: DataType<LikeItem>[];
+  comments: DataType<string>[];
 }
-const CardFooter: React.FC<CardFooterProps> = ({borderColor}) => {
+const CardFooter: React.FC<CardFooterProps> = ({borderColor, likes, comments}) => {
 
   return (
     <View style={[styles.container, {borderTopColor: borderColor}]} >
