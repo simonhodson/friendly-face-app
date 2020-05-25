@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "591601380044",
+    "firebase_url": "https://friendly-face-8b505.firebaseio.com",
+    "project_id": "friendly-face-8b505",
+    "storage_bucket": "friendly-face-8b505.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591601380044:android:2e40509387fea19b807069",
+        "android_client_info": {
+          "package_name": "com.friendlyfaceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591601380044-j3hv9unoq7cutoqdv838t620p143vnis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA74H-PC77v6PB_9v3h18yIqewH8tKBkAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591601380044-j3hv9unoq7cutoqdv838t620p143vnis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
